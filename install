@@ -177,7 +177,7 @@ if [ -f /etc/redhat-release ]; then
     init_script="init"
     proc_insert_point="^mount -t proc \/proc \/proc"
     proc_name="growroot"
-    call_insert_point="^echo Mounting root filesystem\."
+    call_insert_point="^echo Creating root device\."
     grub_config="/boot/grub/grub.conf"
     grub="grub1"
   fi
