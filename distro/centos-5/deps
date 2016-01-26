@@ -9,3 +9,4 @@ awk
 partprobe
 partx
 mkdir
+grep

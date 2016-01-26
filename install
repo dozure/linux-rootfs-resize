@@ -54,6 +54,7 @@ initrd() {
   gunzip -c ${initrd} | cpio -i --make-directories
   # modify
   mkdir -p /tmp/initrd/usr/lib
+  mkdir -p /tmp/initrd/tmp
   copy-tools
   touch etc/mtab
   [ "${mod_type}" == "mod_lvm" ] && \
