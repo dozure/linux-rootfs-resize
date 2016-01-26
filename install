@@ -125,7 +125,7 @@ partition-type
 distro=""
 
 # RedHat derivate
-[ -f /etc/redhat-release ]; then
+if [ -f /etc/redhat-release ]; then
   if [[ "$(cat /etc/redhat-release)" == *CentOS\ release\ 6* ]]; then
     distro="centos-6"
     initrd_path="bin sbin usr/bin usr/sbin"
