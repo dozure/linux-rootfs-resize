@@ -165,7 +165,7 @@ if [ -f /etc/redhat-release ]; then
       kernel=$(ls /boot/vmlinuz-*)
     fi
     init_script="init"
-    proc_insert_point="^mount -t proc /proc /proc"
+    proc_insert_point="^mount -t proc \/proc \/proc"
     proc_name="growroot"
     call_insert_point="^echo Mounting root filesystem\."
     grub_config="/boot/grub/grub.conf"
