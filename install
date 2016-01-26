@@ -70,11 +70,7 @@ initrd() {
   fi
   # create new
   find ./ | cpio -H newc -o > /tmp/initrd.cpio
-echo "######"
-echo "$initrd"
-echo "$initrd-mod"
   gzip -c /tmp/initrd.cpio > ${initrd}-mod
-echo "######"
   # clean up
   cd ${inst_dir}
   rm -rf /tmp/initrd.cpio /tmp/initrd
