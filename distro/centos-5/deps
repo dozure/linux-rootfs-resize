@@ -7,3 +7,5 @@ resize2fs
 sed
 awk
 partprobe
+partx
+mkdir
