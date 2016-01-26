@@ -165,8 +165,8 @@ if [ -f /etc/redhat-release ]; then
       # kernel and initramfs, which kinda sucks, but not sure how to handle
       # multiple initramfs or kernels that might be present - which one is the
       # 'real' one?
-      initrd=$(ls /boot/initrd*)
-      kernel=$(ls /boot/vmlinuz-*)
+      initrd=$(ls /boot/initrd*PAE.img)
+      kernel=$(ls /boot/vmlinuz-*PAE)
     fi
     init_script="init"
     proc_insert_point="^mount -t proc \/proc \/proc"
