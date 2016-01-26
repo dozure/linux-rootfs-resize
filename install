@@ -59,8 +59,14 @@ initrd() {
   [ "${mod_type}" == "mod_lvm" ] && \
     sed -i "s/locking_type = 4/locking_type = 1/" etc/lvm/lvm.conf
   mod_file=${inst_dir}/distro/${distro}/${mod_type}
-  sed -i -e "/${proc_insert_point}/r ${mod_file}" -e "//N" ${init_script}
-  sed -i "/${call_insert_point}/i ${proc_name}" ${init_script}
+  if [ "${distro}" == "centos-5"]; then
+    cat ${mod_file} >> bin/growroot
+    chmod a+x /bin/growroot
+    sed -i "/${call_insert_point}/i growroot vda1" ${init_script}
+  else
+    sed -i -e "/${proc_insert_point}/r ${mod_file}" -e "//N" ${init_script}
+    sed -i "/${call_insert_point}/i ${proc_name}" ${init_script}
+  fi
   # create new
   find ./ | cpio -H newc -o > /tmp/initrd.cpio
 echo "######"
