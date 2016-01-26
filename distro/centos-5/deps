@@ -10,3 +10,5 @@ partprobe
 partx
 mkdir
 grep
+cat
+rm
