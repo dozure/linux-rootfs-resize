@@ -63,7 +63,7 @@ initrd() {
   if [ x"${distro}" == x"centos-5" ]; then
     cat ${mod_file} >> bin/growroot
     chmod a+x bin/growroot
-    sed -i "/${call_insert_point}/i exec growroot vda1" ${init_script}
+    sed -i "/${call_insert_point}/i growroot vda1" ${init_script}
   else
     sed -i -e "/${proc_insert_point}/r ${mod_file}" -e "//N" ${init_script}
     sed -i "/${call_insert_point}/i ${proc_name}" ${init_script}

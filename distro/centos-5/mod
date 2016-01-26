@@ -1,7 +1,8 @@
 #!/bin/bash
-root=$1
 echo "[] linux-rootfs-resize ..."
 growpart -v /dev/vda 1
 partprobe -s /dev/vda
 e2fsck -p -f /dev/vda1
 resize2fs -p /dev/vda1
+echo "[] resize done ..."
+exit 0
